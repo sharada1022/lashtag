@@ -11,7 +11,7 @@ const con = mysql.createConnection({
   host: DB_HOST || "127.0.0.1",
   user: DB_USER || "root",
   password: DB_PASS,
-  database: DB_NAME || "lashtag",
+  database: DB_NAME,
   multipleStatements: true,
 });
 
@@ -21,15 +21,11 @@ con.connect(function (err) {
 
   let sql = fs.readFileSync(__dirname + "/init_db.sql").toString(); // this is new
   con.query(sql, function (err, result) {
-    let sql =
-      "DROP TABLE if exists clients; CREATE TABLE students(id INT NOT NULL AUTO_INCREMENT, firstname VARCHAR(40) not null, lastname VARCHAR(40) not null, PRIMARY KEY (id));";
-    con.query(sql, function (err, result) {
-      if (err) throw err;
-      console.log("Table creation `clients` was successful!");
+    if (err) throw err;
+    console.log("Table creation `clients` was successful!");
 
-      console.log("Closing...");
-    });
-
-    con.end();
+    console.log("Closing...");
   });
+
+  con.end();
 });

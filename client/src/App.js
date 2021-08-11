@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "./App.css";
+import Form from "./components/Form.js";
+import "./index.css";
 
 function App() {
   const [clients, listClients] = useState([]);
@@ -7,7 +8,7 @@ function App() {
   const [email, addEmail] = useState("");
 
   useEffect(() => {
-    fetch("/lashtag/clients")
+    fetch("/lashtag")
       .then((res) => res.json())
       .then((data) => {
         listClients(data);
@@ -16,17 +17,6 @@ function App() {
         console.log("FALLEN LASH!", error.message);
       });
   }, []);
-
-  const handleChange = (event) => {
-    listClients(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDetfault();
-
-    listClients();
-    listProcedure("");
-  };
 
   const addClient = async () => {
     let newClient = { name: clients, email, number: false };
@@ -54,7 +44,7 @@ function App() {
     };
 
     try {
-      let response = await fetch(`lashtag/clients/${id}`, options);
+      let response = await fetch(`lashtag/${id}`, options);
       if (response.ok) {
         let data = await response.json();
         listClients(data);
@@ -66,17 +56,39 @@ function App() {
     }
   };
 
+  const onChange = (updatedValue) => {
+    this.setState({
+      clients: {
+        ...this.state.clients,
+        ...updatedValue,
+      },
+    });
+  };
+
   return (
     <div className="App">
-      <button type="button" onClick={(e) => listClients(clients.id)}>
-        complete
+      <button
+        onClick={() => {
+          console.log("You clicked me!");
+        }}
+        type="button"
+        buttonStyle=""
+      >
+        Full Set 45
       </button>
 
-      <form onSubmit={(e) => handleSubmit(e)} />
-      <label>
-        <input value={clients} onChange={(e) => handleChange(e)} />
-        <input value={email} onChange={(e) => handleChange(e)} />
-      </label>
+      <button
+        onClick={() => {
+          console.log("You clicked me!");
+        }}
+        type="button"
+        buttonStyle=""
+      >
+        Infills 20
+      </button>
+
+      <Form onChange={(clients) => this.onSubmit(clients)} />
+      <p>{JSON.stringify(this.state.clients)}</p>
     </div>
   );
 }
