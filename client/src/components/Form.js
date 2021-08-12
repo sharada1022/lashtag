@@ -1,63 +1,55 @@
 import React from "react";
 
-class Form extends React.Component {
-  state = {
+function Form() {
+  const state = {
     fullName: "",
     emailAddress: "",
     number: "",
   };
 
-  change = (e) => {
+  const change = (e) => {
     this.props.onChange({ [e.target.name]: e.target.value });
     this.setState({
       [e.target.name]: e.target.value,
     });
   };
 
-  onSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    this.props.onSubmit(this.state);
-    this.setState({
-      fullName: "",
-      emailAddress: "",
-      number: "",
-    });
   };
 
-  render() {
-    return (
-      <form>
-        <input
-          name="fullName"
-          placeholder="Full Name"
-          value={this.state.fullName}
-          onChange={(e) => this.change(e)}
-        />
+  return (
+    <form>
+      <input
+        name="fullName"
+        placeholder="Full Name"
+        value={this.state.fullName}
+        onChange={(e) => change(e)}
+      />
 
-        <br />
+      <br />
 
-        <input
-          name="emailAddress"
-          placeholder="Email Address"
-          value={this.state.emailAddress}
-          onChange={(e) => this.change(e)}
-        />
+      <input
+        name="emailAddress"
+        placeholder="Email Address"
+        value={this.state.emailAddress}
+        onChange={(e) => change(e)}
+      />
 
-        <br />
+      <br />
 
-        <input
-          name="number"
-          placeholder="Phone Number"
-          value={this.state.number}
-          onChange={(e) => this.change(e)}
-        />
+      <input
+        name="number"
+        placeholder="Phone Number"
+        value={this.state.number}
+        onChange={(e) => change(e)}
+      />
 
-        <br />
+      <br />
 
-        <button onClick={(e) => this.onSubmit(e)}>Submit</button>
-      </form>
-    );
-  }
+      <button onClick={(e) => this.onSubmit(e)}>Submit</button>
+    </form>
+  );
 }
 
 export default Form;

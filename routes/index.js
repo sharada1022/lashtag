@@ -1,12 +1,13 @@
 var express = require("express");
 var router = express.Router();
+var db = require("../model/helper");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.send({ title: "Express" });
 });
 
-router.get("/lashtag", (res) => {
+router.get("/lashtag", async (req, res) => {
   db("SELECT * FROM clients ORDER BY  id")
     .then((results) => {
       res.send(results.data);
@@ -14,9 +15,9 @@ router.get("/lashtag", (res) => {
     .catch((err) => res.status(500).send(err));
 });
 
-router.post("lashtag/clients", async (req, res) => {
+router.post("/lashtag", async (req, res) => {
   let { name, email, number } = req.body;
-  let sql = `INSERT INTO clients (name, email, number) VALUES ('${name}', ${email}, ${number})`;
+  let sql = `INSERT INTO clients (name, email, number) VALUES ('${name}', '${email}', '${number}')`;
   try {
     await db(sql);
     let results = await db("SELECT * FROM clients");
