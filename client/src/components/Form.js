@@ -1,53 +1,29 @@
-import React from "react";
+import React, {useForm} from "react";
+
 
 function Form() {
-  const state = {
-    fullName: "",
-    emailAddress: "",
-    number: "",
-  };
+  const { register, handleSubmit } = useForm();
 
-  const change = (e) => {
-    this.props.onChange({ [e.target.name]: e.target.value });
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const onSubmit = (e) => {
-    e.preventDefault();
+  const onSubmit = (data) => {
+    
   };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input type="text" placeholder="Full Name" name="name" ref={register} />
       <input
-        name="fullName"
-        placeholder="Full Name"
-        value={this.state.fullName}
-        onChange={(e) => change(e)}
-      />
-
-      <br />
-
-      <input
-        name="emailAddress"
+        type="text"
         placeholder="Email Address"
-        value={this.state.emailAddress}
-        onChange={(e) => change(e)}
+        name="email"
+        ref={register}
       />
-
-      <br />
-
       <input
-        name="number"
+        type="text"
         placeholder="Phone Number"
-        value={this.state.number}
-        onChange={(e) => change(e)}
+        name="number"
+        ref={register}
       />
-
-      <br />
-
-      <button onClick={(e) => this.onSubmit(e)}>Submit</button>
+      <input type="submit" />
     </form>
   );
 }

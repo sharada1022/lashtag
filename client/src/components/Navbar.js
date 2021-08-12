@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "./Button";
+import "./Navbar.css";
 
 export default function Navbar() {
   const [click, setClick] = useState(false);
@@ -40,16 +41,6 @@ export default function Navbar() {
 
           <li className="nav-item">
             <Link
-              to="/contactus"
-              className="nav-links"
-              onClick={closeMobileMenu}
-            >
-              Contact Us
-            </Link>
-          </li>
-
-          <li className="nav-item">
-            <Link
               to="/aftercare"
               className="nav-links"
               onClick={closeMobileMenu}
@@ -59,7 +50,7 @@ export default function Navbar() {
           </li>
         </ul>
 
-        {button && <Button buttonStyle="btn--outline">SignUP</Button>}
+        {button && <Button buttonStyle="btn--outline">Contact Us</Button>}
       </div>
       ;
     </nav>

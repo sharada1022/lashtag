@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useForm } from "react";
 import Form from "./components/Form.js";
 import "./index.css";
 import { Link } from "react-router-dom";
 import Navbar from "./components/Navbar.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Aftercare from "./components/Aftercare.js";
+
 // import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 // import Lashtag from "../src/Lashtag.jpeg";
 
 function App() {
   const [clients, setClients] = useState([]);
-  const [procedure, addProcedure] = useState("");
-  const [email, addEmail] = useState("");
+  const [procedure, setProcedure] = useState("");
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
     fetch("/lashtag")
@@ -65,55 +67,29 @@ function App() {
     setClients(e.input.value);
 
     addClients();
-    addProcedure("");
+    setProcedure("");
   };
 
   const handleChange = (e) => {
     setClients(e.target.value);
   };
 
-  const newImage = Image;
-
   return (
     <div className="App">
-      {/* <img src={Lashtag} alt="Lashtag" /> */}
-      {/* <img src=“https://i.ibb.co/5YMPWSw/Lashtag.jpg” /> */}
-
       <Router>
         <Navbar />
+
         <Switch>
-          <Route path="/" exact />
+          <Route path="/home" component={""} />
+
+          <Route path="/aftercare" component={Aftercare} />
+
+          <Route path="/contactus" component={""} />
         </Switch>
       </Router>
-      <button
-        onClick={() => {
-          console.log("You clicked me!");
-        }}
-        type="button"
-        buttonStyle=""
-      >
-        Full Set £45
-      </button>
-      <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Full Name" name="fullname" />
-        <br />
-        <input type="text" placeholder="Email Address" name="email" />
-        <br />
-        <input type="text" placeholder="Phone Number" name="number" />
-        <br />
-        <input type="submit" />
-      </form>
+
       <br />
       <br />
-      <button
-        onClick={() => {
-          console.log("You clicked me!");
-        }}
-        type="button"
-        buttonStyle=""
-      >
-        Infills £20
-      </button>
     </div>
   );
 }
