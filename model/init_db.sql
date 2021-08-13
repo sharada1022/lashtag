@@ -16,4 +16,4 @@ CREATE TABLE clients(
         email,
         number
     )
-    VALUES("Jane Doe", "janedoe@email.com", "012345678"), ("April Jones", "april@email.com", "0987654321");
+    VALUES("Jane Doe", "janedoe@email.com", "012345678"), ("April Jones", "april@email.com", "0987654321"), ("Trixie Mattel", "trixie@email.com", "0201234567"), ("Naomi Campbell", "ncampbell@email.com", "9876543210"), ("Stevie Nicks", "nicksteves@email.com", "5432109876");

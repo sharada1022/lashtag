@@ -28,7 +28,7 @@ router.post("/lashtag", async (req, res) => {
   }
 });
 
-router.put("lashtag/:lashtag_id", async (req, res) => {
+router.put("lashtag/", async (req, res) => {
   let lashtagId = req.params.lashtag_id;
   try {
     let results = await db(`SELECT * FROM clients WHERE id = ${lashtagId}`);

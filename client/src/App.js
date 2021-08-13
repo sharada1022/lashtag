@@ -1,13 +1,9 @@
-import React, { useEffect, useState, useForm } from "react";
-import Form from "./components/Form.js";
-import "./index.css";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import "./App.css";
 import Navbar from "./components/Navbar.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Aftercare from "./components/Aftercare.js";
-
-// import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
-// import Lashtag from "../src/Lashtag.jpeg";
+import Lashtag from "../src/Lashtag.jpeg";
 
 function App() {
   const [clients, setClients] = useState([]);
@@ -25,15 +21,25 @@ function App() {
       });
   }, []);
 
+  const handleChange = (e) => {
+    setClients(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addClients("");
+    setProcedure("");
+  };
+
   const addClients = async () => {
-    let newClient = { name: clients, email, number: false };
+    let newClient = { name: clients, email, number: true };
     let options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newClient),
     };
     try {
-      let response = await fetch("lashtag", options);
+      let response = await fetch("/lashtag", options);
       if (response.ok) {
         let data = await response.json();
         setClients(data);
@@ -51,7 +57,7 @@ function App() {
     };
 
     try {
-      let response = await fetch(`lashtag/${id}`, options);
+      let response = await fetch(`/lashtag/${id}`, options);
       if (response.ok) {
         let data = await response.json();
         setClients(data);
@@ -61,17 +67,6 @@ function App() {
     } catch (err) {
       console.log(`Network error: ${err.message}`);
     }
-  };
-
-  const handleSubmit = (e) => {
-    setClients(e.input.value);
-
-    addClients();
-    setProcedure("");
-  };
-
-  const handleChange = (e) => {
-    setClients(e.target.value);
   };
 
   return (
@@ -87,8 +82,36 @@ function App() {
           <Route path="/contactus" component={""} />
         </Switch>
       </Router>
-
+      <img src={Lashtag} alt="Lashtag Logo" />
       <br />
+      <ul>
+        {clients.map((c) => (
+          <li key={c.id}>
+            {c.name}
+            <br />
+
+            {c.email}
+            <br />
+
+            {c.number}
+          </li>
+        ))}
+      </ul>
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <label>
+          Full Name:
+          <input onChange={(e) => handleChange(e)} />
+          <br />
+          Email Address:
+          <input onChange={(e) => handleChange(e)} />
+          <br />
+          Phone Number:
+          <input onChange={(e) => handleChange(e)} />
+        </label>
+        <br />
+        <button type="Full Set">Full Set</button>
+        <button type="Infills">Infills</button>
+      </form>
       <br />
     </div>
   );
