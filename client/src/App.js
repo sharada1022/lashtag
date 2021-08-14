@@ -4,11 +4,13 @@ import Navbar from "./components/Navbar.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Aftercare from "./components/Aftercare.js";
 import Lashtag from "../src/Lashtag.jpeg";
+import FullsetView from "./components/FullsetView";
+import InfillsView from "./components/InfillsView";
 
 function App() {
   const [clients, setClients] = useState([]);
-  const [procedure, setProcedure] = useState("");
-  const [email, setEmail] = useState("");
+  const [Infills] = useState("");
+  const [email] = useState("");
 
   useEffect(() => {
     fetch("/lashtag")
@@ -21,14 +23,17 @@ function App() {
       });
   }, []);
 
-  const handleChange = (e) => {
+  const handleChangeView = (e) => {
     setClients(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     addClients("");
-    setProcedure("");
+  };
+
+  const handleAddClients = (fullSet) => {
+    setClients(fullSet);
   };
 
   const addClients = async () => {
@@ -70,7 +75,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div>
       <Router>
         <Navbar />
 
@@ -84,35 +89,18 @@ function App() {
       </Router>
       <img src={Lashtag} alt="Lashtag Logo" />
       <br />
-      <ul>
-        {clients.map((c) => (
-          <li key={c.id}>
-            {c.name}
-            <br />
 
-            {c.email}
-            <br />
+      <button onClick={() => handleChangeView(true)}>Full Set £45 </button>
+      <button onClick={() => handleChangeView(false)}>Inflills £20 </button>
+      {Infills ? (
+        <FullsetView
+          addClients={(newClients) => handleAddClients(newClients)}
+        />
+      ) : (
+        <InfillsView allClients={clients} />
+      )}
 
-            {c.number}
-          </li>
-        ))}
-      </ul>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <label>
-          Full Name:
-          <input onChange={(e) => handleChange(e)} />
-          <br />
-          Email Address:
-          <input onChange={(e) => handleChange(e)} />
-          <br />
-          Phone Number:
-          <input onChange={(e) => handleChange(e)} />
-        </label>
-        <br />
-        <button type="Full Set">Full Set</button>
-        <button type="Infills">Infills</button>
-      </form>
-      <br />
+      <text>Terms and Conditions</text>
     </div>
   );
 }

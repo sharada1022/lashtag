@@ -1,10 +1,18 @@
-.body {
+* {
   background-color: black;
+  color: black;
+  padding: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.img {
+img {
   margin: center;
   display: flexbox;
+  width: 100%;
 }
 
 .navbar {
@@ -15,7 +23,6 @@
   font-size: 1.2rem;
   position: sticky;
   top: 0;
-  z-index: 999;
 }
 
 .navbar-logo {
@@ -27,4 +34,21 @@
   font-size: 2rem;
   display: flex;
   align-items: center;
+}
+
+.fullsetview {
+  background-color: black;
+}
+
+.infillsview {
+  background-color: black;
+}
+
+button .fullsetview {
+  border: white;
+  font-size: medium;
+  color: white;
+  width: 60%;
+  min-height: 20px;
+  box-sizing: border-box;
 }
