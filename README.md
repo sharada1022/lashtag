@@ -6,5 +6,11 @@ Database & tables
 Api Routes
 ![image](https://user-images.githubusercontent.com/84447860/129475892-5a431daa-47a7-4d08-99cb-c680944dbd2d.png)
 
+Technologies use:
+React.js
+MySQL
+
+
+
 _This is a student project that was created at
 [CodeOp](http://codeop.tech), a full stack development bootcamp in Barcelona._
