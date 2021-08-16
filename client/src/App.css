@@ -1,4 +1,4 @@
-* {
+.MainView {
   background-color: black;
   color: black;
   padding: 40px;
@@ -7,6 +7,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+Card {
+  background-color: gold;
 }
 
 img {
@@ -36,19 +40,28 @@ img {
   align-items: center;
 }
 
-.fullsetview {
-  background-color: black;
+.FullsetView {
+  background-color: gold;
 }
 
-.infillsview {
-  background-color: black;
+.InfillsView {
+  background-color: gold;
 }
 
-button .fullsetview {
+div .button {
   border: white;
   font-size: medium;
   color: white;
   width: 60%;
   min-height: 20px;
   box-sizing: border-box;
+}
+
+form {
+  border: 30px;
+  border-width: 16px;
+  padding: 30px;
+  margin: 20px auto;
+  font-style: white;
+  background-color: white;
 }

@@ -24,7 +24,6 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
-         
           <i className="fab fa-typo3" />
         </Link>
 
@@ -33,11 +32,17 @@ export default function Navbar() {
         </div>
 
         <ul className={click ? "nav-menu active" : "nav-menu"}>
-          <li className="nav-item">
-            <Link to="/" className="nav-links" onClick={closeMobileMenu}>
-              Home
-            </Link>
-          </li>
+          <Link to="/home" className="nav-links" onClick={closeMobileMenu}>
+            Home
+          </Link>
+
+          <Link to="/fullset" className="nav-links">
+            Fullset
+          </Link>
+
+          <Link to="/infills" className="nav-links">
+            Infills
+          </Link>
 
           <li className="nav-item">
             <Link

@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function fullsetView({ props }) {
-  const [clients, setInputClients] = {
+// import Lashtag from "./components/Lashtag.jpeg";
+
+export default function FullsetView({ props }) {
+  const [clients, setInputClients] = useState({
     name: "",
     email: "",
     number: "",
-  };
+  });
 
   const handleInputChange = (e) => {
     const value = e.target.value;
@@ -23,37 +25,46 @@ export default function fullsetView({ props }) {
   };
 
   return (
-    <div>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <label>
-          Full Name
-          <input
-            name="fullname"
-            value={clients.name}
-            onChange={handleInputChange}
-          />
-        </label>
-        <br />
-        <label>
-          Email Address
-          <textarea
-            name="email"
-            value={clients.email}
-            onChange={handleInputChange}
-          ></textarea>
-        </label>
-        <br />
-        <label>
-          Phone Number
-          <textarea
-            name="number"
-            value={clients.number}
-            onChange={handleInputChange}
-          ></textarea>
-        </label>
+    <div className="FullsetView">
+      {/* <img src={Lashtag} alt="Lashtag Logo" /> */}
+      <div style={{ backgroundColor: "white" }}>
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <label>
+            Full Name
+            <input
+              name="fullname"
+              value={clients.name}
+              onChange={handleInputChange}
+            />
+          </label>
 
-        <button>Submit</button>
-      </form>
+          <br />
+
+          <label>
+            Email Address
+            <input
+              name="email"
+              value={clients.email}
+              onChange={handleInputChange}
+            ></input>
+          </label>
+
+          <br />
+
+          <label>
+            Phone Number
+            <input
+              name="number"
+              value={clients.number}
+              onChange={handleInputChange}
+            ></input>
+          </label>
+
+          <br />
+
+          <button>Submit</button>
+        </form>
+      </div>
     </div>
   );
 }

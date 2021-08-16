@@ -3,14 +3,16 @@ import "./App.css";
 import Navbar from "./components/Navbar.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Aftercare from "./components/Aftercare.js";
-import Lashtag from "../src/Lashtag.jpeg";
 import FullsetView from "./components/FullsetView";
 import InfillsView from "./components/InfillsView";
+import MainView from "./components/MainView";
+// import Lashtag from "./components/Lashtag.jpeg";
 
 function App() {
   const [clients, setClients] = useState([]);
-  const [Infills] = useState("");
-  const [email] = useState("");
+  const [currentView, setCurrentView] = useState("Fullset");
+
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
     fetch("/lashtag")
@@ -80,27 +82,31 @@ function App() {
         <Navbar />
 
         <Switch>
-          <Route path="/home" component={""} />
+          <Route path="/" component={MainView} />
 
           <Route path="/aftercare" component={Aftercare} />
 
           <Route path="/contactus" component={""} />
+
+          <Route path="/fullset" component={FullsetView} />
+
+          <Route path="/infills" component={InfillsView} />
         </Switch>
       </Router>
-      <img src={Lashtag} alt="Lashtag Logo" />
+      {/* <img src={Lashtag} alt="Lashtag Logo" /> */}
       <br />
 
-      <button onClick={() => handleChangeView(true)}>Full Set £45 </button>
-      <button onClick={() => handleChangeView(false)}>Inflills £20 </button>
-      {Infills ? (
+      {/* <box>Full Set £45 </box>
+
+      <button onClick={() => handleChangeView(false)}>Inflills £20 </button> */}
+
+      {/* {currentView === "Fullset" ? (
         <FullsetView
           addClients={(newClients) => handleAddClients(newClients)}
         />
       ) : (
         <InfillsView allClients={clients} />
-      )}
-
-      <text>Terms and Conditions</text>
+      )} */}
     </div>
   );
 }
