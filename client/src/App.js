@@ -6,7 +6,8 @@ import Aftercare from "./components/Aftercare.js";
 import FullsetView from "./components/FullsetView";
 import InfillsView from "./components/InfillsView";
 import MainView from "./components/MainView";
-// import Lashtag from "./components/Lashtag.jpeg";
+import Lashtag from "./components/Lashtag.jpeg";
+import AppointmentInfo from "./components/AppointmentInfo.jpeg";
 
 function App() {
   const [clients, setClients] = useState([]);
@@ -82,7 +83,7 @@ function App() {
         <Navbar />
 
         <Switch>
-          <Route path="/" component={MainView} />
+          <Route path="/home" component={MainView} />
 
           <Route path="/aftercare" component={Aftercare} />
 
@@ -93,8 +94,12 @@ function App() {
           <Route path="/infills" component={InfillsView} />
         </Switch>
       </Router>
-      {/* <img src={Lashtag} alt="Lashtag Logo" /> */}
+
+      {/* <img src={Lashtag} alt="Lashtag Logo" class="Lashtag-Logo" /> */}
+
       <br />
+
+      {/* <img src={AppointmentInfo} alt="Appointment Info" class="Appointments" /> */}
 
       {/* <box>Full Set £45 </box>
 

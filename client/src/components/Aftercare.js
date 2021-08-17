@@ -1,10 +1,11 @@
 import React from "react";
+import AfterCare from "./AfterCare.png";
+import "./Aftercare.css";
 
 export default function Aftercare() {
   return (
     <div>
-      {/* <h1>404</h1>
-      <h2>Page Not Found</h2> */}
+      <img src={AfterCare} alt="Aftercare tips" class="AfterCare" />
     </div>
   );
 }

@@ -1,0 +1,13 @@
+body {
+  background: black;
+  color: black;
+}
+
+.AfterCare {
+  width: 715px;
+  display: block;
+  margin: 0 auto;
+  display: center;
+  /* width: 100%; */
+  background: black;
+}

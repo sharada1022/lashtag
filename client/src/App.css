@@ -1,22 +1,29 @@
 .MainView {
   background-color: black;
   color: black;
-  padding: 40px;
+  /* padding: 40px; */
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
-  margin: 0;
-  padding: 0;
+  margin: auto;
+  /* padding: 0; */
   box-sizing: border-box;
+  align-items: center;
 }
 
-Card {
-  background-color: gold;
+.Lashtag-Logo {
+  display: block;
+  margin: 0 auto;
+  display: center;
+  /* width: 100%; */
+  background-color: black;
 }
 
-img {
-  margin: center;
-  display: flexbox;
-  width: 100%;
+.Appointments {
+  display: block;
+  margin: 0 auto;
+  display: center;
+  /* width: 300px; */
+  background-color: black;
 }
 
 .navbar {
@@ -40,28 +47,11 @@ img {
   align-items: center;
 }
 
-.FullsetView {
-  background-color: gold;
-}
-
-.InfillsView {
-  background-color: gold;
-}
-
-div .button {
+/* div .button {
   border: white;
   font-size: medium;
   color: white;
   width: 60%;
   min-height: 20px;
   box-sizing: border-box;
-}
-
-form {
-  border: 30px;
-  border-width: 16px;
-  padding: 30px;
-  margin: 20px auto;
-  font-style: white;
-  background-color: white;
-}
+} */

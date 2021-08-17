@@ -1,9 +1,13 @@
 import React from "react";
+import "../App.css";
+import Lashtag from "../components/Lashtag.jpeg";
+import AppointmentInfo from "../components/AppointmentInfo.jpeg";
+// import LashVolumes from ".components/LashVolumes.jpg";
 // import Lashtag from "./components/Lashtag.jpeg";
 // import AppointmentInfo from "./components/AppointmentInfo.jpeg";
-import { Card } from "react-bootstrap";
-import { ListGroup } from "react-bootstrap";
-import { ListGroupItem } from "react-bootstrap";
+// import { Card } from "react-bootstrap";
+// import { ListGroup } from "react-bootstrap";
+// import { ListGroupItem } from "react-bootstrap";
 
 export default function MainView() {
   const cardInfo = [
@@ -29,11 +33,16 @@ export default function MainView() {
 
   return (
     <div className="MainView">
-      {/* <img src={Lashtag} alt="Lashtag Logo" /> */}
+      {/* <img src={LashVolumes} alt="Lash Volumes" /> */}
+      <img src={Lashtag} alt="Lashtag Logo" className="Lashtag-Logo" />
 
-      {/* <img src={AppointmentInfo} alt="Appointment Info" /> */}
+      <img
+        src={AppointmentInfo}
+        alt="Appointment Info"
+        className="Appointments"
+      />
 
-      <Card style={{ width: "18rem" }}>
+      {/* <Card style={{ width: "18rem" }}>
         <Card.Img variant="top" src="" />
         <Card.Body>
           <Card.Title>Full Set Lashes </Card.Title>
@@ -90,7 +99,7 @@ export default function MainView() {
             residue.
           </Card.Text>
         </Card.Body>
-      </div>
+      </div> */}
     </div>
   );
 }
