@@ -20,22 +20,45 @@ form {
   color: black;
 }
 
-div .TsCs {
-  background-color: black;
-  width: 500px;
-  color: white;
-  border-style: solid;
-  /* border-color: gold; */
-  position: fixed;
+h1 {
   font-family: Arial, Helvetica, sans-serif;
+  border: 10px;
+  border-style: groove;
+  border-width: medium;
+  border-color: black;
+  text-align: center;
+}
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  border: 10px;
+  border-style: groove;
+  border-width: medium;
+  border-color: black;
+  font-display: center;
+  text-align: center;
+}
+h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  border: 10px;
+  border-style: groove;
+  border-width: medium;
+  border-color: black;
+  text-align: center;
+}
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  border: 10px;
+  border-style: groove;
+  border-width: medium;
+  border-color: black;
+  text-align: center;
 }
 
 .Infills-Price {
-  width: 100%;
-  display: block;
-  justify-content: center;
-  margin: 0 auto;
-  align-items: center;
+  width: 550px;
+  /* display: 0;
+  margin: auto; */
 }
 
 button {

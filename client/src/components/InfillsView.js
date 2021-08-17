@@ -54,17 +54,20 @@ export default function InfillsView({ props }) {
         <br />
         <br />
 
-        <h1>Terms and Conditions</h1>
         <br />
+        <h2>INFILLS</h2>
         <p>
           Please note...
-          <h2>INFILLS</h2>
+          <br />
           <br />
           There should be at least 40-50% of lashes remaining.
           <br />
-          I do not infill the work of any other technicians.
-          <br />
-          <br />
+          <br />I do not infill the work of any other technicians.{" "}
+        </p>
+        <br />
+        <h1>Terms and Conditions</h1>
+        <p>
+          {" "}
           The address will be sent up to a day before your appointment.
           <br />
           <br />

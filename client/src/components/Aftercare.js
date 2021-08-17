@@ -4,7 +4,8 @@ import "./Aftercare.css";
 
 export default function Aftercare() {
   return (
-    <div>
+    <div className="aftercare-tips">
+      <br />
       <img src={AfterCare} alt="Aftercare tips" class="AfterCare" />
     </div>
   );
