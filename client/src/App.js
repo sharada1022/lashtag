@@ -8,12 +8,18 @@ import InfillsView from "./components/InfillsView";
 import MainView from "./components/MainView";
 import Lashtag from "./components/Lashtag.jpeg";
 import AppointmentInfo from "./components/AppointmentInfo.jpeg";
+import SignIn from "./components/SignIn";
+import BookAppointment from "./components/BookAppointment";
 
 function App() {
   const [clients, setClients] = useState([]);
   const [currentView, setCurrentView] = useState("Fullset");
 
   const [email, setEmail] = useState("");
+
+  const  [user, setUser] = useState([]);//setUser
+  const [appointment, setAppointment] = useState([]);
+
 
   useEffect(() => {
     fetch("/lashtag")
@@ -77,6 +83,55 @@ function App() {
     }
   };
 
+ // adding exisiting user
+  useEffect(() => {
+    fetch("/users/login")
+      .then((res) => res.json())
+      .then((data) => {
+        setUser(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+        
+  
+  useEffect(() => {
+    fetch("/appointments")
+      .then((res) => res.json())
+      .then((data) => {
+        setAppointment(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+
+  const addAppointment = async (newAppointment) => {
+    
+    let options = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newAppointment),
+    };
+    try {
+      let response = await fetch("/appointments", options);
+      if (response.ok) {
+        let data = await response.json();
+        setAppointment(data);
+      } else {
+        console.log(`Sever error ${response.status} ${response.statusClient}`);
+      }
+    } catch (err) {
+      console.log(`Network error: ${err.message}`);
+    }
+  };
+
+
+
+
+
   return (
     <div>
       <Router>
@@ -92,7 +147,13 @@ function App() {
           <Route path="/fullset" component={FullsetView} />
 
           <Route path="/infills" component={InfillsView} />
+
+          <Route path="/signin" component={SignIn} />
+
+          <Route path="/bookappointment" component={BookAppointment} />
+
         </Switch>
+
       </Router>
 
       {/* <img src={Lashtag} alt="Lashtag Logo" class="Lashtag-Logo" /> */}

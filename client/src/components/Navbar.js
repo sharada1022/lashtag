@@ -44,6 +44,10 @@ export default function Navbar() {
             Infills
           </Link>
 
+          <Link to="/bookappointment" className="nav-links">
+            Book Appointment
+          </Link>
+
           <li className="nav-item">
             <Link
               to="/aftercare"
