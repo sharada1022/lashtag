@@ -10,6 +10,7 @@ import Lashtag from "./components/Lashtag.jpeg";
 import AppointmentInfo from "./components/AppointmentInfo.jpeg";
 import SignIn from "./components/SignIn";
 import BookAppointment from "./components/BookAppointment";
+import { useHistory } from 'react-router-dom';
 
 function App() {
   const [clients, setClients] = useState([]);
@@ -19,6 +20,8 @@ function App() {
 
   const  [user, setUser] = useState([]);//setUser
   const [appointment, setAppointment] = useState([]);
+  
+  const history = useHistory();
 
 
   useEffect(() => {
@@ -109,7 +112,6 @@ function App() {
 
 
   const addAppointment = async (newAppointment) => {
-    
     let options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -120,6 +122,7 @@ function App() {
       if (response.ok) {
         let data = await response.json();
         setAppointment(data);
+        history.push("/home")
       } else {
         console.log(`Sever error ${response.status} ${response.statusClient}`);
       }
@@ -127,9 +130,6 @@ function App() {
       console.log(`Network error: ${err.message}`);
     }
   };
-
-
-
 
 
   return (
@@ -150,8 +150,9 @@ function App() {
 
           <Route path="/signin" component={SignIn} />
 
-          <Route path="/bookappointment" component={BookAppointment} />
-
+          <Route path="/bookappointment"  component={()=><BookAppointment addAppointmentCb ={addAppointment}/>} />
+          {/* <Route path="/bookappointment" addAppointmentCb={addAppointment} component={BookAppointment} /> */}
+ 
         </Switch>
 
       </Router>

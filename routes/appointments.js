@@ -23,5 +23,5 @@ router.get("/appointments", async (req, res) => {
       res.status(500).send({ error: err.message });
     }
   });
-
   module.exports = router;
+  

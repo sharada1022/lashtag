@@ -1,4 +1,5 @@
 import React,{ useState } from "react";
+// import ReactDOM from 'react-dom'
 
 function SignIn( props ) {
   //let input = useState({
@@ -24,29 +25,37 @@ function SignIn( props ) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // let response = props.loginUser(user)
     props.loginUser(user)
+    // ReactDOM.render(response, document.getElementById("loginResponse"))
+        
  //  loginUser(user)
   };
 
  
 
-
-
-
 return (
 
-<div>SignIn
+<item>
+<div className = "Form">
 
-<form onSubmit={e => handleSubmit(e)}>
-<input name = "email" type="text" placeholder="email" onChange={handleInputChange} />
-<input name = "password" type="password" placeholder="password" onChange={handleInputChange} />
-<button type="submit">login</button>
+    <form onSubmit={e => handleSubmit(e)}>
+       <table><tr><td>
+        <label>
+          Email ID:</label></td><td>
+          <input name = "email" type="text" placeholder="email" onChange={handleInputChange} />
+          </td></tr><tr><td>
+        <label>
+          Password:</label></td><td>
+          <input name = "password" type="password" placeholder="password" onChange={handleInputChange} />
+         </td></tr></table>
+     <button type="submit">login</button>
 
-
-</form>
+     <button type="submit">Cancel</button>
+    </form>
 </div>
-)
+{/* <div id = "loginResponse">This is default text.</div> */}
+</item>
+)};
 
-}
-
-export default SignIn
+export default SignIn;

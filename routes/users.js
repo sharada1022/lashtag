@@ -33,7 +33,7 @@ router.post("/users/login", async (req, res) => {
 
     if (results.data.length == 0) {
       res.status(401).send("User ID does not exist. Please try again.")
-    } else{
+    } else {
       if (results.data[0].password == password) {
        // res.redirect(201, "/appointments")
        res.status(200).send(results.data[0])
