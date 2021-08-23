@@ -1,5 +1,5 @@
 import React,{ useState } from "react";
-// import ReactDOM from 'react-dom'
+
 
 function SignIn( props ) {
   //let input = useState({
@@ -26,10 +26,8 @@ function SignIn( props ) {
   const handleSubmit = (e) => {
     e.preventDefault();
     // let response = props.loginUser(user)
-    props.loginUser(user)
-    // ReactDOM.render(response, document.getElementById("loginResponse"))
-        
- //  loginUser(user)
+    props.loginUser(user) 
+ 
   };
 
  

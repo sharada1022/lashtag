@@ -11,6 +11,8 @@ import AppointmentInfo from "./components/AppointmentInfo.jpeg";
 import SignIn from "./components/SignIn";
 import BookAppointment from "./components/BookAppointment";
 import { useHistory } from 'react-router-dom';
+import Payment from "./components/Payment";
+
 
 function App() {
   const [clients, setClients] = useState([]);
@@ -91,7 +93,7 @@ function App() {
     fetch("/users/login")
       .then((res) => res.json())
       .then((data) => {
-        setUser(data);
+        //setUser(data);
       })
       .catch((error) => {
         console.log(error);
@@ -104,31 +106,34 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         setAppointment(data);
+        
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
 
-
+ 
   const addAppointment = async (newAppointment) => {
     let options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newAppointment),
+      body: JSON.stringify(newAppointment)
     };
-    try {
+     console.log(newAppointment)
       let response = await fetch("/appointments", options);
+      
       if (response.ok) {
-        let data = await response.json();
+        console.log("here",newAppointment)
+        let data = await response.json();       
         setAppointment(data);
-        history.push("/home")
+        console.log(history)
+        history.push('/infills')//redirect to payment page view
+       
       } else {
         console.log(`Sever error ${response.status} ${response.statusClient}`);
       }
-    } catch (err) {
-      console.log(`Network error: ${err.message}`);
-    }
+    
   };
 
 
@@ -149,10 +154,12 @@ function App() {
           <Route path="/infills" component={InfillsView} />
 
           <Route path="/signin" component={SignIn} />
-
-          <Route path="/bookappointment"  component={()=><BookAppointment addAppointmentCb ={addAppointment}/>} />
-          {/* <Route path="/bookappointment" addAppointmentCb={addAppointment} component={BookAppointment} /> */}
+          <Route path="/bookappointment"><BookAppointment addAppointment={(e) => addAppointment(e)}/></Route>
+          {/* <Route path="/bookappointment" addAppointment={addAppointment} component={BookAppointment} />  */}
+          { /*Route path="/bookappointment"  component={()=><BookAppointment addAppointmentCb ={addAppointment}/> */}
  
+          <Route path="/payment" component={Payment} />
+         
         </Switch>
 
       </Router>

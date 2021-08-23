@@ -15,7 +15,7 @@ function BookAppointment( props ){
 
     const handleInputChange = (e) => {
         const value = e.target.value;
-        const name = e.target.value;
+        const name = e.target.name;
         //props.addappointment(setAppointment);
     
         setAppointment((state) => ({
@@ -28,7 +28,7 @@ function BookAppointment( props ){
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('--props',props)
-        props.addAppointmentCb(appointment)
+        props.addAppointment(appointment)
       };
 
     const loginUser = async (loginInfo) => {
@@ -51,7 +51,7 @@ function BookAppointment( props ){
           console.log(`Network error: ${err.message}`);
         }
       };
-    debugger
+    
 
 return (
 <item>
@@ -63,22 +63,22 @@ return (
      <table><tr><td>
        <label>
          Date:</label></td><td>
-         <input type="date" placeholder="date" onChange={handleInputChange}/>
+         <input name="date" type="date" placeholder="date" onChange={handleInputChange}/>
          </td></tr><tr><td>
        <label>
          Month:
          </label></td><td>
-         <input type="text" placeholder="calender" onChange={handleInputChange}/>
+         <input  name="month" type="text" placeholder="calender" onChange={handleInputChange}/>
          </td></tr><tr><td>
         <label>
          Time:    
         </label></td><td>   
-         <input type="time" placeholder="time" onChange={handleInputChange}/>
+         <input name="time" type="time" placeholder="time" onChange={handleInputChange}/>
          </td></tr><tr><td>
          <label>
          Style: 
          </label></td><td>
-         <input type="text" placeholder="Style" onChange={handleInputChange}/>   
+         <input  name="style" type="text" placeholder="Style" onChange={handleInputChange}/>  
          </td></tr></table>
      <button type="submit">Click to pay</button>
   </form>
