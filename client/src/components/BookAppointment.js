@@ -78,7 +78,11 @@ return (
          <label>
          Style: 
          </label></td><td>
-         <input  name="style" type="text" placeholder="Style" onChange={handleInputChange}/>  
+         {/* <input  name="style" type="text" placeholder="Style" onChange={handleInputChange}/>  */}
+         <select name="style" id="style">
+            <option value="fullset">Fullset</option>
+            <option value="infills">Infills</option>
+         </select> 
          </td></tr></table>
      <button type="submit">Click to pay</button>
   </form>

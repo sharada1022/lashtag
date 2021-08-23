@@ -128,7 +128,7 @@ function App() {
         let data = await response.json();       
         setAppointment(data);
         console.log(history)
-        history.push('/infills')//redirect to payment page view
+        history.push('/payment')//redirect to payment page view
        
       } else {
         console.log(`Sever error ${response.status} ${response.statusClient}`);
@@ -139,7 +139,7 @@ function App() {
 
   return (
     <div>
-      <Router>
+      {/* <Router> */}
         <Navbar />
 
         <Switch>
@@ -162,7 +162,7 @@ function App() {
          
         </Switch>
 
-      </Router>
+      {/* </Router> */}
 
       {/* <img src={Lashtag} alt="Lashtag Logo" class="Lashtag-Logo" /> */}
 
