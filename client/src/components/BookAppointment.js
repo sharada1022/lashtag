@@ -2,6 +2,8 @@ import React,{useState} from "react";
 import SignIn from "./SignIn";
 import { useHistory } from 'react-router-dom';
 
+
+
 function BookAppointment( props ){
     const history = useHistory();
     const [appointment, setAppointment] = useState({
@@ -84,6 +86,7 @@ return (
             <option value="infills">Infills</option>
          </select> 
          </td></tr></table>
+         
      <button type="submit">Click to pay</button>
   </form>
 </div>

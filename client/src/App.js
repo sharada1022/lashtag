@@ -12,9 +12,10 @@ import SignIn from "./components/SignIn";
 import BookAppointment from "./components/BookAppointment";
 import { useHistory } from 'react-router-dom';
 import Payment from "./components/Payment";
+import Admin from "./components/Admin";
 
 
-function App() {
+function App() {  
   const [clients, setClients] = useState([]);
   const [currentView, setCurrentView] = useState("Fullset");
 
@@ -159,6 +160,7 @@ function App() {
           { /*Route path="/bookappointment"  component={()=><BookAppointment addAppointmentCb ={addAppointment}/> */}
  
           <Route path="/payment" component={Payment} />
+          <Route path="/admin" component={Admin} />
          
         </Switch>
 
